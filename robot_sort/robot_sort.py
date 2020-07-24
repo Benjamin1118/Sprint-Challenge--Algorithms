@@ -97,27 +97,33 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        # turn light on
-        self.set_light_on
-        # while light is on turn it off 
-        # then if a swap happens turn it on again 
+        # while light is off 
+        # then if a swap happens turn it on 
         # but keep swapping till cant go right more
-        while light_is_on == "ON" or can_move_right == True:
-            self.set_light_off
-            self.compare_item
-            if 1:
-                self.swap_item
-                self.move_right
-                self.set_light_on
-            elif -1 or 0:
-                self.move_right
+        while not self.light_is_on():
+            self.set_light_on()
+
+            while self.can_move_right():
+                self.swap_item() # Swaps None value for first value in array
+                self.move_right() # moves to next value
+
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    #self.move_right()
+                    self.set_light_off()
+                self.move_left() #has reached end and is less than greatest value so move left and put correctly
+                self.swap_item()
+                self.move_right()
+                
+            if self.light_is_on():
+                    break
             # elif  0:
             #     self.move_right
     # I need some way to drop the greatest value at end 
     # then go back to front of list            
-            elif can_move_right == False:
-                while can_move_left == True:
-                    self.move_left
+            else: # self.can_move_right():
+                while self.can_move_left():
+                    self.move_left()
             
 
         
