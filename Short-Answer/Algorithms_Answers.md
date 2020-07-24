@@ -2,13 +2,18 @@
 
 ## Exercise I
 
-a)  O(n): number of loops is based off of n
+a) a(n*n*n)/ a(n*n) == a(n) 
+    So this is O(n)
 
 
-b) O(n^2): when checking on n twice it becomes n^2
+b) this calls n 2x 1: in the for loop, 2: in the while loop
+but in the while loop j is incremented 2x
+    So this one is O(n log n)
 
 
-c) O(n): this is a recusion so it recuces to 0
+c) This one calls bunnies, when bunnies is 0 it ends
+ so this one is O(n)
+ 
 
 ## Exercise II
 start = n[0]
@@ -32,4 +37,5 @@ middle = range(start, len(n)) //2
             print(middle)
             test. drop_egg(middle)
 
+runtime complexity is worst case O(n)
 
